@@ -1,0 +1,55 @@
+<!doctype HTML>
+<html>
+<head>
+	<title>Cat Clicker</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!--since I didn't focus much on css, less styles added in the html page itself-->
+	<style>
+	</style>
+</head>
+<body>
+	<ul id = "list">
+	</ul>
+	<div id = "admin">
+		<button> Admin</button>
+	</div><br><br>
+	<div id = "admin-list">
+		<form>
+			Name: <input type="text" id = "name"><br><br>
+			Img Url: <input type="text" id = "imgurl"><br><br>
+			# Clicks: <input type="text" id = "clicks"><br><br>
+			<div id = "cancel">Cancel</div>
+			<div id = "save">Save</div>
+		</form>
+	</div>
+	<div id ="elem">
+	</div>
+	<script>
+
+	/*$(document).ready(function() {
+		var images = ["images/kitten.jpg", "images/kitten2.jpg", "images/kitten3.jpg", "kitten4.jpg"];
+		var count = 0;
+		for(var i = 0; i < images.length; i++) {
+			$("#list").append('<li id ="item' +i + '">' + images[i] + '</li>');
+			//I used pretty good 'iify' function here :-)
+			$('#item' + i).on("click", (function(countcpy,img,i) {
+				return function() {
+
+					$("#elem").html('');
+					$("#elem").append('<h1>' + img + '</h1>' + '<img src="' + img + '" id="img' + i + '">' + '<h3>No.of clicks: <input type="text" value = "0" id = "count"></h3>');
+					$('#img' + i).on("click", function() {
+						countcpy++;
+						$('#count').val('img' + i + ': ' + countcpy);
+					})
+					
+				};
+			})(count,images[i],i));
+
+			
+		};
+		
+	});*/
+	</script>
+	<script src = "script.js"></script> 
+</body>
+</html>
