@@ -62,6 +62,27 @@ $(function() {
 			var name = $('#name').val();
 			model.data[i].name = name;
 			$('#item'+i).text(name);
+		},
+		getTitle: function(count) {
+			if(count <= 5) {
+				title = "Newborn";
+			}
+			else if(count <= 10) {
+				title = "Infant";
+			}
+			else if(count <= 15) {
+				title = "Child";
+			}
+			else if(count <= 20) {
+				title = "Teen";
+			}
+			else if(count <= 25) {
+				title = "Adult";
+			}
+			else {
+				title = "Ninja";
+			}
+			return title;
 		}
 	};
 
@@ -85,13 +106,16 @@ $(function() {
 			var url = octopus.getUrl(i);
 			$('#imgurl').val(url);
 			var count = octopus.getCount(i);
+			var title = octopus.getTitle(count);
 			$('#clicks').val(count);
-			$('#elem').append('<h1>' + name + '</h1>' + '<h3>No.of clicks: <input type="text" value = "' + count + '" id = "count"></h3>' + '<img src="' + url + '" id="img' + i + '">' );
+			$('#elem').append('<h1>' + name + '</h1>' + '<h2 id = "title">' + title + '</h2>' + '<h3> No.of clicks: <input type="text" value = "' + count + '" id = "count"></h3>' + '<img src="' + url + '" id="img' + i + '">' );
 			
 			$('img').on("click", function() {		
 				count++;
 				$('#clicks').val(count);
 				$('#count').val(count);
+				title = octopus.getTitle(count);
+				$('#title').text(title);
 				octopus.putCount(i);
 			});	
 
