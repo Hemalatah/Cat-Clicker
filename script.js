@@ -4,27 +4,32 @@ $(function() {
 			{
 				name: "kitten1",
 				count: 0,
-				url: "images/kitten1.jpg" 
+				url: "images/kitten1.jpg",
+				petNames: ["a1", "a2", "a3"] 
 			},
 			{
 				name: "kitten2",
 				count: 0,
-				url: "images/kitten2.jpg" 
+				url: "images/kitten2.jpg",
+				petNames: ["b1", "b2", "b3"]
 			},
 			{
 				name: "kitten3",
 				count: 0,
-				url: "images/kitten3.jpg" 
+				url: "images/kitten3.jpg",
+				petNames: ["c1", "c2", "c3"] 
 			},
 			{
 				name: "kitten4",
 				count: 0,
-				url: "images/kitten4.jpg" 
+				url: "images/kitten4.jpg",
+				petNames: ["d1", "d2", "d3"] 
 			},
 			{
 				name: "kitten5",
 				count: 0,
-				url: "images/kitten5.jpg" 
+				url: "images/kitten5.jpg",
+				petNames: ["e1", "e2", "e3"] 
 			}
 		],
 		init: function() {
@@ -83,6 +88,9 @@ $(function() {
 				title = "Ninja";
 			}
 			return title;
+		},
+		getPetNames: function(i) {
+			return model.data[i].petNames;
 		}
 	};
 
@@ -108,7 +116,12 @@ $(function() {
 			var count = octopus.getCount(i);
 			var title = octopus.getTitle(count);
 			$('#clicks').val(count);
-			$('#elem').append('<h1>' + name + '</h1>' + '<h2 id = "title">' + title + '</h2>' + '<h3> No.of clicks: <input type="text" value = "' + count + '" id = "count"></h3>' + '<img src="' + url + '" id="img' + i + '">' );
+			$('#elem').append('<h1>' + name + '</h1>' + '<h2 id = "title">' + title + '</h2>' + '<h3> No.of clicks: <input type="text" value = "' + count + '" id = "count"></h3>' + '<img src="' + url + '" id="img' + i + '">' + '<ul id = "petList">' + '<strong>PetNames</strong>' + '</ul>');
+
+			var petList = octopus.getPetNames(i);
+			for(var k = 0; k < petList.length; k++) {
+				$('#petList').append('<li>' + petList[k] + '</li>');
+			}
 			
 			$('img').on("click", function() {		
 				count++;
